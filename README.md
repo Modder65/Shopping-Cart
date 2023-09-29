@@ -1,5 +1,7 @@
 # Shopping Cart
 
+[Live Demo](https://shopping-cart-cga.pages.dev/)
+
 ## Overview
 
 Mock E-commerce site that fetches data from the Fake Store API and displays products as if it was a shop.
