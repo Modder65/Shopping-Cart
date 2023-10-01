@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function useProduct() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const isMounted = useRef(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +21,10 @@ export function useProduct() {
         setLoading(false);
       }
     };
-    fetchData();
+    if (isMounted.current == false) {
+      fetchData();
+      isMounted.current = true;
+    }
   }, []);
 
   return { data, loading, error };
