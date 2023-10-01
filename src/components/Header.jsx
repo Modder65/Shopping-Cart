@@ -1,27 +1,43 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import homeIcon from "../assets/imgs/home.svg";
 import shopIcon from "../assets/imgs/shop.svg";
 import cartIcon from "../assets/imgs/cart.svg";
 
 export function Header() {
+  const [navSelector, setNavSelector] = useState("home");
+
+  const handleSelector = (button) => {
+    setNavSelector(button);
+  };
+
   return (
     <header>
       <h1>Electronics Store</h1>
       <nav className="header-navigation">
         <ul className="header-navigation-list">
-          <li className="nav-item">
+          <li
+            className={`nav-item ${navSelector === "home" ? "clicked" : ""}`}
+            onClick={() => handleSelector("home")}
+          >
             <Link to="/" className="nav-link">
               <img src={homeIcon} alt="Home Button Icon" />
               <button className="navigation-button">Home</button>
             </Link>
           </li>
-          <li className="nav-item">
+          <li
+            className={`nav-item ${navSelector === "store" ? "clicked" : ""}`}
+            onClick={() => handleSelector("store")}
+          >
             <Link to="/store" className="nav-link">
               <img src={shopIcon} alt="Shop Button Icon" />
               <button className="navigation-button">Store</button>
             </Link>
           </li>
-          <li className="nav-item">
+          <li
+            className={`nav-item ${navSelector === "cart" ? "clicked" : ""}`}
+            onClick={() => handleSelector("cart")}
+          >
             <Link to="/cart" className="nav-link">
               <img src={cartIcon} alt="Cart Button Icon" />
               <button className="navigation-button">Cart</button>

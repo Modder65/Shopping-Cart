@@ -169,6 +169,10 @@ h1 {
   background-color: darkorange; /* Change this color to whatever you prefer */
 }
 
+.clicked {
+  border-bottom: 3px solid #fff;
+}
+
 @media (max-width: 430px) {
   .header-navigation-list {
     flex-direction: column;

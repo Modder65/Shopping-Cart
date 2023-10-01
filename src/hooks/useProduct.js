@@ -4,7 +4,6 @@ export function useProduct() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const isMounted = useRef(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,10 +20,7 @@ export function useProduct() {
         setLoading(false);
       }
     };
-    if (isMounted.current == false) {
-      fetchData();
-      isMounted.current = true;
-    }
+    fetchData();
   }, []);
 
   return { data, loading, error };
