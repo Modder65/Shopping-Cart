@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+
+let cache;
 
 export function useProduct() {
   const [data, setData] = useState([]);
@@ -7,13 +9,18 @@ export function useProduct() {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (cache) {
+        setData(cache);
+        setLoading(false);
+        return;
+      }
       try {
         const fetchedData = await fetch(
           "https://fakestoreapi.com/products/category/electronics"
         );
         const jsonData = await fetchedData.json();
         setData(jsonData);
-        console.log(jsonData);
+        cache = jsonData; // Cache the data
       } catch (error) {
         setError(error);
       } finally {
