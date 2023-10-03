@@ -6,10 +6,10 @@ export function Cart() {
   return (
     <>
       <h1 className="cart-header">My Cart</h1>
-      <div className="products-container">
+      <div className="products-container cart-container">
         {cart.map((cartItem) => (
-          <div className="product" key={cartItem.cartId}>
-            <div className="product-image-container">
+          <div className="product cart-product" key={cartItem.cartId}>
+            <div className="product-image-container  cart-image-container">
               <img className="product-image" src={cartItem.image} alt="" />
             </div>
             <div className="product-content">

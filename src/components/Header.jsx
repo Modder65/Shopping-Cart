@@ -16,33 +16,33 @@ export function Header() {
       <h1>Electronics Store</h1>
       <nav className="header-navigation">
         <ul className="header-navigation-list">
-          <li
-            className={`nav-item ${navSelector === "home" ? "clicked" : ""}`}
-            onClick={() => handleSelector("home")}
-          >
-            <Link to="/" className="nav-link">
+          <Link to="/" className="nav-link">
+            <li
+              className={`nav-item ${navSelector === "home" ? "clicked" : ""}`}
+              onClick={() => handleSelector("home")}
+            >
               <img src={homeIcon} alt="Home Button Icon" />
               <button className="navigation-button">Home</button>
-            </Link>
-          </li>
-          <li
-            className={`nav-item ${navSelector === "store" ? "clicked" : ""}`}
-            onClick={() => handleSelector("store")}
-          >
-            <Link to="/store" className="nav-link">
+            </li>
+          </Link>
+          <Link to="/store" className="nav-link">
+            <li
+              className={`nav-item ${navSelector === "store" ? "clicked" : ""}`}
+              onClick={() => handleSelector("store")}
+            >
               <img src={shopIcon} alt="Shop Button Icon" />
               <button className="navigation-button">Store</button>
-            </Link>
-          </li>
-          <li
-            className={`nav-item ${navSelector === "cart" ? "clicked" : ""}`}
-            onClick={() => handleSelector("cart")}
-          >
-            <Link to="/cart" className="nav-link">
+            </li>
+          </Link>
+          <Link to="/cart" className="nav-link">
+            <li
+              className={`nav-item ${navSelector === "cart" ? "clicked" : ""}`}
+              onClick={() => handleSelector("cart")}
+            >
               <img src={cartIcon} alt="Cart Button Icon" />
               <button className="navigation-button">Cart</button>
-            </Link>
-          </li>
+            </li>
+          </Link>
         </ul>
       </nav>
     </header>
