@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useCartContext } from "../global state/CartContext";
+import { useCartContext } from "./useCartContext";
 
 export function useCart() {
   const { cart, setCart } = useCartContext();
@@ -14,10 +13,6 @@ export function useCart() {
   const removeFromCart = (cartId) => {
     setCart((prevCart) => prevCart.filter((item) => item.cartId !== cartId));
   };
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   return { cart, setCart, handleCart, removeFromCart };
 }

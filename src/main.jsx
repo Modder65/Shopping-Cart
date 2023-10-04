@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CartProvider } from "./global state/CartContext";
+import { CartProvider } from "./components/CartProvider";
 import Router from "./Router";
 import "./App.css";
 
