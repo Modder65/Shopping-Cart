@@ -2,6 +2,7 @@ import { useState, createContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 export const CartContext = createContext();
+export const ItemCountContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
@@ -18,14 +19,13 @@ export const CartProvider = ({ children }) => {
     prevCartLength.current = cart.length;
   }, [cart]);
 
-  const value = {
-    cart,
-    setCart,
-    itemCount,
-    setItemCount,
-  };
-
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={(cart, setCart)}>
+      <ItemCountContext.Provider value={{ itemCount, setItemCount }}>
+        {children}
+      </ItemCountContext.Provider>
+    </CartContext.Provider>
+  );
 };
 
 //Prop Validation

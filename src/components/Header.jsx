@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCartContext } from "../hooks/useCartContext";
+import { itemCountContext } from "../hooks/useCartContext";
 import homeIcon from "../assets/imgs/home.svg";
 import shopIcon from "../assets/imgs/shop.svg";
 import cartIcon from "../assets/imgs/cart.svg";
 
 export function Header() {
   const [navSelector, setNavSelector] = useState("home");
-  const { itemCount } = useCartContext();
+  const { itemCount } = itemCountContext();
 
   const handleSelector = (button) => {
     setNavSelector(button);
