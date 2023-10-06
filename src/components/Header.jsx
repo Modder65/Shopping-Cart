@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../hooks/useCartContext";
 import homeIcon from "../assets/imgs/home.svg";
 import shopIcon from "../assets/imgs/shop.svg";
 import cartIcon from "../assets/imgs/cart.svg";
 
 export function Header() {
   const [navSelector, setNavSelector] = useState("home");
+  const { itemCount } = useCartContext();
 
   const handleSelector = (button) => {
     setNavSelector(button);
@@ -41,6 +43,7 @@ export function Header() {
             >
               <img src={cartIcon} alt="Cart Button Icon" />
               <button className="navigation-button">Cart</button>
+              <div className="item-count">{itemCount}</div>
             </li>
           </Link>
         </ul>
