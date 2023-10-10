@@ -198,7 +198,7 @@ h1 {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--accent-color);
+  background-color: red;
   color: white;
   border-radius: 50%;
   width: 20px;
@@ -206,10 +206,16 @@ h1 {
   text-align: center;
   line-height: 20px;
   font-size: 12px;
+  font-weight: bold;
+  color: white;
 }
 
 .clicked {
   border-bottom: 3px solid #fff;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 1035px) {

@@ -43,7 +43,9 @@ export function Header() {
             >
               <img src={cartIcon} alt="Cart Button Icon" />
               <button className="navigation-button">Cart</button>
-              <div className="item-count">{itemCount}</div>
+              <div className={`item-count ${itemCount == 0 ? "hidden" : ""}`}>
+                {itemCount}
+              </div>
             </li>
           </Link>
         </ul>
